@@ -1,13 +1,304 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;800&display=swap');
+
+/* Variables */
+:root {
+  --font-normal: 300;
+  --font-medium: 400;
+  --font-bold: 600;
+  --font-very-bold: 800;
+
+  --primary-color: hsl(215, 51%, 70%);
+  --secondary-color: hsl(178, 100%, 50%);
+  
+  --main-bg-color: hsl(217, 54%, 11%);
+  --card-bg-color: hsl(216, 50%, 16%);
+  --line-color: hsl(215, 32%, 27%);
+  --bg-color: hsl(0, 0%, 100%);
+
+  --body-font: 'Outfit', sans-serif;
+  --xl-font-size: 1.5rem;
+  --l-font-size: 1.25rem;
+  --m-font-size: 1rem;
+  --normal-font-size: 0.9rem;
+  --s-font-size: 0.8rem;
+  --xs-font-size: 0.75rem;
+
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* INITIAL SETUP */
+
+@media screen and (min-width: 768px) {
+  :root{
+    --xl-font-size: 2.25rem;
+    --l-font-size: 1.5rem;
+    --m-font-size: 1.25rem;
+    --normal-font-size: 18px;
+    --s-font-size: 0.875rem;
+    --xs-font-size: 0.8rem;
+  }
 }
+
+*,::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* margin: var(--header-height) 0 0 0; */
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: var(--font-bold);
+  font-size: var(--xl-font-size);
+}
+
+h3, h4 {
+  font-weight: var(--font-medium);
+  font-size: var(--l-font-size);
+}
+
+h5 ,h6 {
+  font-weight: var(--font-normal);
+  font-size: var(--m-font-size);
+}
+
+p {
+  font-weight: var(--font-normal);
+  font-size: var(--normal-font-size);
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display:  block;
+}
+
+.container {
+  max-width: 1440px;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+
+}
+
+/* HEADER */
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  letter-spacing: 1rem;
+  color: white;
+  font-size: calc(1.5*var(--xl-font-size));
+}
+
+/* BANNER */
+
+.hero {
+  padding-top: 100px;
+  margin-bottom: var(--mb-5);
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.98;
+  font-family: 'Outfit', sans-serif;
+  font-weight: var(--font-normal);
+  padding: 0 100px;
+  margin-bottom: var(--mb-5);
+}
+
+.banner-item-big {
+  letter-spacing: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-weight: var(--font-very-bold);
+  font-style: italic;
+}
+
+.banner-item-big > span {
+  font-size: 6rem;
+}
+
+.banner-item-medium {
+  font-size: calc(1.2*var(--l-font-size));
+  font-weight: var(--font-bold);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: var(--mb-1);
+}
+
+.banner-item-small {
+  text-align: center;
+  margin-bottom: var(--mb-1);
+  padding: 0 auto;
+}
+
+/* MENU */
+
+.menu-container {
+  border: 1px solid;
+  /* display: grid;
+  grid-template-columns: 1fr 7fr 1fr; */
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+.search-box {
+  border-right: 1px solid;
+  text-align: center;
+}
+
+.search {
+  border: none;
+}
+
+.search::placeholder {
+  font-size: var(--s-font-size);
+  font-weight: var(--font-bold);
+  color: black;
+}
+
+.search:hover {
+  cursor: pointer;
+}
+
+/* add style when clicked */
+
+.champ-filter {
+  display: flex;
+}
+
+.champ-filter > li {
+  margin-right: 25px;
+}
+
+.champ-filter > li > button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgba(194, 189, 189, 0.877);
+  font-size: var(--xs-font-size);
+  font-weight: var(--font-bold);
+}
+
+.champ-filter > li > button:hover {
+  border-bottom: 2px solid var(--primary-color);
+  color: black;
+  padding-bottom: 2px;
+}
+
+/* Add style when selected */
+
+.difficulty-container {
+  position: relative;
+  border-left: 1px solid;
+  text-align: center;
+  font-size: var(--s-font-size);
+  font-weight: var(--font-bold);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.difficulty-container:hover {
+  cursor: pointer;
+}
+
+.menu-trigger {
+  border: none;
+  background: none;
+}
+
+.menu-trigger span {
+  font-size: var(--s-font-size);
+  font-weight: var(--font-bold);
+  padding-left: var(--mb-4);
+}
+
+.menu {
+  background: white;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  width: 138.5px;
+  margin-right: -25px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  border-top: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu li:hover {
+  background-color: rgba(194, 189, 189, 0.877);
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 5px 20px;
+  display: block;
+}
+
+
+
+
+
+
