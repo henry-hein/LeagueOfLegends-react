@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { json, checkStatus } from './utils';
 import ChampFilterMenu from './ChampFilter';
 import DropdownMenu from './DropdownMenu';
+import { GiWingfoot, GiBullseye, GiShoulderArmor, GiHealthPotion, GiAxeSword } from "react-icons/gi";
 
 const Champ = (props) => {
   const {
@@ -14,16 +15,28 @@ const Champ = (props) => {
   } = props.champ;
 
   return (
-    <div className="champ-container">
+    <div className="champ-card">
         <Link to={`champ/${id}/`}>
-         <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"}></img>
-          <h4>Name: {name}</h4>
-          <h5>Title: {title}</h5>
-          <h5>{tags[0]}</h5>
-          <h5>{tags[1]}</h5>
-          <h5>Stats: {stats.armor}</h5>
-          <h5>{stats.attackdamage}</h5>
-          <h5>{stats.hp}</h5>
+          <div className="img-container" style={{"--aspect-ratio":1/1.3}}>
+            <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"}></img>
+          </div>
+          <div className="champ-info">
+            <h3 className="champ-name">{name}</h3>
+            <h4 className="champ-title">{title}</h4>
+            <ul className="champ-stats">
+              <li className="champ-stat"><GiShoulderArmor /> {stats.armor}</li>
+              <li className="champ-stat"><GiAxeSword /> {stats.attackdamage}</li>
+              <li className="champ-stat"><GiHealthPotion /> {stats.hp}</li>
+              <li className="champ-stat"><GiWingfoot /> {stats.movespeed}</li>
+              <li className="champ-stat"><GiBullseye /> {stats.attackrange}</li>
+            </ul>
+            <ul className="champ-roles">
+              <li>Role(s):</li>
+              <li className="champ-role">{tags[0]}</li>
+              <li className="champ-role">{tags[1]}</li>
+            </ul>
+          
+          </div>
         </Link>
     </div>
   )
@@ -78,7 +91,6 @@ class Champion extends React.Component {
           </div>
         </div>
           <div className="container champs-container">
-            
             {(() => {
               return results.map((champ) => {
                 return <Champ key={champ.id} champ={champ} />;
