@@ -217,7 +217,11 @@ img {
 }
 
 .champ-filter > li {
-  margin-right: 25px;
+  margin-right: 15px;
+}
+
+.champ-filter > li:first-child {
+  margin-left: 15px;
 }
 
 .champ-filter > li > button {
@@ -230,7 +234,7 @@ img {
 }
 
 .champ-filter > li > button:hover {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid orange;
   color: black;
   padding-bottom: 2px;
 }
@@ -297,8 +301,89 @@ img {
   display: block;
 }
 
+/* CHAMPION CARDS */
 
+.champs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: var(--mb-3);
+  column-gap: var(--mb-3);
+  margin-bottom: var(--mb-5);
+}
 
+.champ-card {
+  background-color: var(--card-bg-color);
+  padding: var(--mb-3);
+}
 
+.champ-card:hover {
+  cursor: pointer;
+}
 
+.champ-card:hover .champ-name {
+  color: orange;
+}
+
+.img-container {
+  margin-bottom: var(--mb-3);
+}
+
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+[style*="--aspect-ratio"] > img {  
+  height: auto;
+} 
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }  
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }  
+}
+
+.champ-name {
+  font-weight: var(--font-very-bold);
+  font-size: var(--l-font-size);
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  text-align: right;
+  transition: color ease-in-out 1s;
+}
+
+.champ-title {
+  font-style: italic;
+  font-size: var(--xs-font-size);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.18rem;
+  text-align: right;
+}
+
+.champ-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: var(--mb-3);
+  row-gap: var(--mb-2);
+}
+
+.champ-stat {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.champ-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: var(--mb-1);
+  margin-top: var(--mb-2);
+}
 
