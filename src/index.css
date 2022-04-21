@@ -198,6 +198,8 @@ img {
 
 .search {
   border: none;
+  height: 30px;
+  font-size: var(--xs-font-size);
 }
 
 .search::placeholder {
@@ -288,6 +290,7 @@ img {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  z-index: 100;
 }
 
 .menu li:hover {
@@ -305,7 +308,8 @@ img {
 
 .champs-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: var(--mb-3);
   column-gap: var(--mb-3);
   margin-bottom: var(--mb-5);
@@ -385,5 +389,35 @@ img {
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: var(--mb-1);
   margin-top: var(--mb-2);
+}
+
+@media only screen and (max-width: 600px) {
+  .champs-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
