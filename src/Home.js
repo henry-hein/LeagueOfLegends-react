@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { Link } from "react-router-dom";
 import { json, checkStatus } from './utils';
 import ChampFilterMenu from './ChampFilter';
@@ -48,8 +48,15 @@ class Champion extends React.Component {
     this.state = {
       results: [],
       error: '',
+      searchTerm: '',
     };
 
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+
+  handleChange(event) {
+    this.setState({ searchTerm: event.target.value });
   }
 
   componentDidMount() {
@@ -57,7 +64,7 @@ class Champion extends React.Component {
     .then(checkStatus)
     .then(json)
     .then((data) => {
-        console.log(data.data);
+        // console.log(Object.values(data.data));
         this.setState({ results: Object.values(data.data), error: ''});
     })
     .catch((error) => {
@@ -67,7 +74,7 @@ class Champion extends React.Component {
   }
 
   render() {
-    const { results } = this.state;
+    const { results, searchTerm } = this.state;
     return (
       <>
         <div className="container hero">
@@ -78,7 +85,7 @@ class Champion extends React.Component {
           </div>
           <div className="menu-container">
             <div className="search-box">
-              <input type="search" className="search" placeholder="&#128269;      SEARCH"/>
+              <input type="search" onChange={this.handleChange} className="search" placeholder="&#128269;      SEARCH"/>
             </div>
             <ChampFilterMenu />
             {/* <select className="dropdown" name="difficulty">
@@ -92,9 +99,19 @@ class Champion extends React.Component {
         </div>
           <div className="container champs-container">
             {(() => {
-              return results.map((champ) => {
-                return <Champ key={champ.id} champ={champ} />;
-              })
+              return (
+                results.filter((champ) =>{ 
+                  if(searchTerm === ''){
+                    return champ;
+                  } else if(champ.id.toLowerCase().includes(searchTerm.toLowerCase())){
+                    return champ;
+                  }
+                }).map((champ) => {
+                  return (
+                    <Champ key={champ.id} champ={champ} />
+                  );
+                })
+              )
             })()}
           </div>
       </>
@@ -103,3 +120,6 @@ class Champion extends React.Component {
 }
 
 export default Champion;
+
+// return results.map((champ) => {
+//   return <Champ key={champ.id} champ={champ} />;
