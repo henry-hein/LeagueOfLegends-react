@@ -1,23 +1,14 @@
 import React from 'react';
 
-const ChampFilterMenu = () => {
-  return ( 
-    <ul className="champ-filter">
-      <ChampFilterMenuItem champType="ALL" />
-      <ChampFilterMenuItem champType="ASSASSINS" />
-      <ChampFilterMenuItem champType="FIGHTERS" />
-      <ChampFilterMenuItem champType="MAGES" />
-      <ChampFilterMenuItem champType="MARKSMEN" />
-      <ChampFilterMenuItem champType="SUPPORT" />
-      <ChampFilterMenuItem champType="TANKS" />
-    </ul>
-  );
-};
 
 const ChampFilterMenuItem = (props) => {
+    const passChampRole = (event) => {
+      props.getChampRole(event.target.value);
+    }
+
   return (
     <li>
-      <button>
+      <button value={props.champType} onClick={passChampRole}>
         {props.champType}
       </button>
     </li>
@@ -25,5 +16,4 @@ const ChampFilterMenuItem = (props) => {
 };
 
 
-
-export default ChampFilterMenu;
+export default ChampFilterMenuItem;

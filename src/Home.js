@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import { Link } from "react-router-dom";
 import { json, checkStatus } from './utils';
-import ChampFilterMenu from './ChampFilter';
+import ChampFilterMenuItem from './ChampFilter';
 import DropdownMenu from './DropdownMenu';
 import { GiWingfoot, GiBullseye, GiShoulderArmor, GiHealthPotion, GiAxeSword } from "react-icons/gi";
 
@@ -31,9 +31,8 @@ const Champ = (props) => {
               <li className="champ-stat"><GiBullseye /> {stats.attackrange}</li>
             </ul>
             <ul className="champ-roles">
-              <li>Role(s):</li>
+              <li>Role:</li>
               <li className="champ-role">{tags[0]}</li>
-              <li className="champ-role">{tags[1]}</li>
             </ul>
           
           </div>
@@ -49,14 +48,24 @@ class Champion extends React.Component {
       results: [],
       error: '',
       searchTerm: '',
+      champRole: 'all',
     };
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleClick = this.handleClick.bind(this);
+    this.getRole = this.getRole.bind(this);
   }
 
   handleChange(event) {
     this.setState({ searchTerm: event.target.value });
+  }
+
+  handleClick(event) {
+    this.setState({ champRole: event.target.value });
+  }
+
+  getRole = (role) => {
+    this.setState({ champRole: role.toLowerCase()});
   }
 
   componentDidMount() {
@@ -74,7 +83,7 @@ class Champion extends React.Component {
   }
 
   render() {
-    const { results, searchTerm } = this.state;
+    const { results, searchTerm, champRole } = this.state;
     return (
       <>
         <div className="container hero">
@@ -87,7 +96,18 @@ class Champion extends React.Component {
             <div className="search-box">
               <input type="search" onChange={this.handleChange} className="search" placeholder="&#128269;      SEARCH"/>
             </div>
-            <ChampFilterMenu />
+            <div className="champ-filter-container">
+              <button className=""><span>Choose Champ Type</span></button>
+              <ul className="champ-filter champ-filter-menu active">
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="ALL" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="ASSASSIN" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="FIGHTER" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="MAGE" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="MARKSMAN" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="SUPPORT" />
+                <ChampFilterMenuItem getChampRole={this.getRole} champType="TANK" />
+              </ul>
+            </div>
             {/* <select className="dropdown" name="difficulty">
               <option value="all">All Difficulties</option>
               <option value="one">-</option>
@@ -100,12 +120,19 @@ class Champion extends React.Component {
           <div className="container champs-container">
             {(() => {
               return (
-                results.filter((champ) =>{ 
-                  if(searchTerm === ''){
+                results.filter((champ) => { 
+                  if(searchTerm === '' && champ.tags[0].toLowerCase() === champRole){
                     return champ;
-                  } else if(champ.id.toLowerCase().includes(searchTerm.toLowerCase())){
+                  } 
+                  else if(champ.tags[0].toLowerCase() === champRole && champ.id.toLowerCase().includes(searchTerm.toLowerCase())){
+                    return champ;
+                  } 
+                  else if(champRole ==='all' && searchTerm !== '' && champ.id.toLowerCase().includes(searchTerm.toLowerCase())) {
                     return champ;
                   }
+                  else if(searchTerm === '' && champRole ==='all'){
+                    return champ;
+                  } 
                 }).map((champ) => {
                   return (
                     <Champ key={champ.id} champ={champ} />
