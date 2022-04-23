@@ -184,8 +184,6 @@ img {
 
 .menu-container {
   border: 1px solid;
-  /* display: grid;
-  grid-template-columns: 1fr 7fr 1fr; */
   display: flex;
   padding: 0.5rem 1.5rem;
   justify-content: space-between;
@@ -391,33 +389,126 @@ img {
   margin-top: var(--mb-2);
 }
 
-@media only screen and (max-width: 600px) {
-  .champs-container {
-    grid-template-columns: 1fr;
-  }
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .champs-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .champs-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .champs-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .champs-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* Large devices (laptops/desktops, 992px and smaller)*/
+@media only screen and (max-width: 992px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .banner-item-big {
+    letter-spacing: 0.4rem;
+    font-style: italic;
+  }
+  
+  .banner-item-big > span {
+    font-size: 5rem;
+  }
+
+  .navbar-brand {
+    letter-spacing: 1rem;
+    font-size: calc(1.2*var(--xl-font-size));
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
+
+  .champ-filter {
+    display: block;
+  }
+
+  .champ-filter-container {
+    position: relative;
+    text-align: center;
+    font-size: var(--s-font-size);
+    font-weight: var(--font-bold);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .champ-filter-menu {
+    background: white;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 138.5px;
+    margin-right: -25px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    border-top: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  }
+
+  .champ-filter-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 100;
+  }
+  /* .champ-filter ul {
+    display: block;
+  }
+
+  .champ-filter ul li {
+    display: block;
+  } */
+}
+
+/* Medium devices (landscape tablets, 768px and smaller) */
+@media only screen and (max-width: 768px) {
+  .champs-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .banner-item-big {
+    letter-spacing: 0.3rem;
+    font-style: italic;
+  }
+  
+  .banner-item-big > span {
+    font-size: 4rem;
+  }
+
+  .navbar-brand {
+    letter-spacing: 1rem;
+    font-size: calc(var(--xl-font-size));
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .champs-container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-item-big {
+    letter-spacing: 0.2rem;
+    font-style: italic;
+  }
+  
+  .banner-item-big > span {
+    font-size: 3rem;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+
+}
+
 
