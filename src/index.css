@@ -55,7 +55,6 @@ html {
 }
 
 body {
-  /* margin: var(--header-height) 0 0 0; */
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--bg-color);
@@ -184,9 +183,9 @@ img {
 
 .menu-container {
   border: 1px solid;
-  display: flex;
-  padding: 0.5rem 1.5rem;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-right: 0;
 }
 
 .search-box {
@@ -198,12 +197,14 @@ img {
   border: none;
   height: 30px;
   font-size: var(--xs-font-size);
+  width: 100%;
 }
 
 .search::placeholder {
   font-size: var(--s-font-size);
   font-weight: var(--font-bold);
   color: black;
+  text-align: center;
 }
 
 .search:hover {
@@ -212,8 +213,13 @@ img {
 
 /* add style when clicked */
 
+.champ-filter-container > button {
+  display: none;
+}
+
 .champ-filter {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .champ-filter > li {
@@ -239,68 +245,13 @@ img {
   padding-bottom: 2px;
 }
 
-/* Add style when selected */
-
-.difficulty-container {
-  position: relative;
-  border-left: 1px solid;
-  text-align: center;
-  font-size: var(--s-font-size);
-  font-weight: var(--font-bold);
+.champ-filter > li > button:focus {
+  border-bottom: 2px solid orange;
   color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 2px;
 }
 
-.difficulty-container:hover {
-  cursor: pointer;
-}
-
-.menu-trigger {
-  border: none;
-  background: none;
-}
-
-.menu-trigger span {
-  font-size: var(--s-font-size);
-  font-weight: var(--font-bold);
-  padding-left: var(--mb-4);
-}
-
-.menu {
-  background: white;
-  position: absolute;
-  top: 25px;
-  right: 0;
-  width: 138.5px;
-  margin-right: -25px;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  border: 1px solid black;
-  border-top: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-}
-
-.menu.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 100;
-}
-
-.menu li:hover {
-  background-color: rgba(194, 189, 189, 0.877);
-}
-
-.menu li a {
-  text-decoration: none;
-  color: #333333;
-  padding: 5px 20px;
-  display: block;
-}
+/* Add style when selected */
 
 /* CHAMPION CARDS */
 
@@ -398,6 +349,10 @@ img {
 
 /* Large devices (laptops/desktops, 992px and smaller)*/
 @media only screen and (max-width: 992px) {
+  
+  .menu-container {
+    grid-template-columns: 1fr 2fr;
+  }
   .champs-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -420,8 +375,33 @@ img {
     padding-top: 80px;
   }
 
+  .champ-filter-container > button {
+    display: block;
+  }
+
   .champ-filter {
     display: block;
+  }
+
+  .champ-filter li:first-child { 
+    margin: 0;
+  }
+
+  .champ-filter li { 
+    margin: var(--mb-1) 0;
+    padding: var(--mb-1) 0;
+  }
+
+  .champ-filter > li > button {
+    width: 100%;
+  }
+
+  .champ-filter > li > button:hover {
+    border-bottom: none;
+  }
+  
+  .champ-filter > li > button:focus {
+    border-bottom: none;
   }
 
   .champ-filter-container {
@@ -435,19 +415,30 @@ img {
     justify-content: center;
   }
 
+  .champ-filter-container > button > span {
+    font-size: var(--s-font-size);
+    font-weight: var(--font-bold);
+    color: black;
+  }
+
+  .champ-filter-container > button {
+    background: none;
+    border: none;
+    width: 100%;
+  }
+
   .champ-filter-menu {
     background: white;
     position: absolute;
-    top: 25px;
-    right: 0;
-    width: 138.5px;
-    margin-right: -25px;
+    top: 31px;
+    width: 100.5%;
     box-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
     border-top: none;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
   }
 
   .champ-filter-menu.active {
@@ -456,13 +447,12 @@ img {
     transform: translateY(0);
     z-index: 100;
   }
-  /* .champ-filter ul {
-    display: block;
+
+  .champ-filter-menu li:hover {
+    background-color: rgba(194, 189, 189, 0.877);
+    z-index: -1;
   }
 
-  .champ-filter ul li {
-    display: block;
-  } */
 }
 
 /* Medium devices (landscape tablets, 768px and smaller) */

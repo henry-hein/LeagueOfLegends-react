@@ -1,8 +1,7 @@
-import React , { useState } from 'react';
+import React , { useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { json, checkStatus } from './utils';
 import ChampFilterMenuItem from './ChampFilter';
-import DropdownMenu from './DropdownMenu';
 import { GiWingfoot, GiBullseye, GiShoulderArmor, GiHealthPotion, GiAxeSword } from "react-icons/gi";
 
 const Champ = (props) => {
@@ -49,19 +48,25 @@ class Champion extends React.Component {
       error: '',
       searchTerm: '',
       champRole: 'all',
+      isActive: false,
+      dropdownRef: React.createRef(),
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.getRole = this.getRole.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  // dropdownRef = useRef(null);
+
+  onClick () {
+   this.setState(prevState => ({
+     isActive: !prevState.isActive
+   })); 
   }
 
   handleChange(event) {
     this.setState({ searchTerm: event.target.value });
-  }
-
-  handleClick(event) {
-    this.setState({ champRole: event.target.value });
   }
 
   getRole = (role) => {
@@ -83,7 +88,7 @@ class Champion extends React.Component {
   }
 
   render() {
-    const { results, searchTerm, champRole } = this.state;
+    const { results, searchTerm, champRole, isActive } = this.state;
     return (
       <>
         <div className="container hero">
@@ -97,8 +102,8 @@ class Champion extends React.Component {
               <input type="search" onChange={this.handleChange} className="search" placeholder="&#128269;      SEARCH"/>
             </div>
             <div className="champ-filter-container">
-              <button className=""><span>Choose Champ Type</span></button>
-              <ul className="champ-filter champ-filter-menu active">
+              <button onClick={this.onClick}><span>CHOOSE CHAMP TYPE</span></button>
+              <ul ref={this.dropdownRef} className={`champ-filter champ-filter-menu ${isActive ? 'active' : 'inactive'}`}>
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ALL" />
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ASSASSIN" />
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="FIGHTER" />
@@ -114,7 +119,6 @@ class Champion extends React.Component {
               <option value="two">- -</option>
               <option value="three">- - -</option>
             </select> */}
-            <DropdownMenu />
           </div>
         </div>
           <div className="container champs-container">
