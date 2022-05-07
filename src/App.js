@@ -9,9 +9,15 @@ const App = () => {
   return (
     <>
       <Router>
-        <nav className="container">
+        <nav className="">
           <div className="nav-container">
             <Link className="navbar-brand" to="/">LEAGUE OF LEGENDS</Link>
+            <div className="socials">
+              <p><FaTwitter /> <a target="_blank" href="https://twitter.com"></a></p>
+              <p><FaLinkedin /> <a target="_blank" href="https://linkedin.com/in/henry-hein"></a></p>
+              <p><FaGithub /> <a target="_blank" href="https://www.github.com/henry-hein"></a></p>
+              <p><FaGlobe /> <a target="_blank" href="https://henryhein.netlify.app"></a></p>
+            </div>
           </div>
         </nav>
         <Switch>
@@ -21,10 +27,7 @@ const App = () => {
       </Router>
 
       <footer className="container">
-        <p><FaTwitter /> <a target="_blank" href="https://twitter.com">Twitter</a></p>
-        <p><FaLinkedin /> <a target="_blank" href="https://linkedin.com/in/henry-hein">Linkedin Account</a></p>
-        <p><FaGithub /> <a target="_blank" href="https://www.github.com/henry-hein">Github</a></p>
-        <p><FaGlobe /> <a target="_blank" href="https://henryhein.netlify.app">Personal Portfolio</a></p>
+        
       </footer>
     </>
   );
