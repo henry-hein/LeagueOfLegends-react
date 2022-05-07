@@ -60,6 +60,7 @@ body {
   background-color: var(--bg-color);
   line-height: 1.6;
   color: black;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -112,21 +113,18 @@ img {
   max-width: 1440px;
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
-
 }
 
 /* HEADER */
 
 .nav-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
   background-color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-left: var(--mb-2);
 }
 
 .navbar-brand {
@@ -135,10 +133,26 @@ img {
   font-size: calc(1.5*var(--xl-font-size));
 }
 
+.socials {
+  display: flex;
+  color: white;
+}
+
+.socials p {
+  font-size: var(--l-font-size);
+  margin-right: 3rem;
+}
+
+.socials p:hover {
+  cursor: pointer;
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.25em);
+  color: orange;
+}
+
 /* BANNER */
 
 .hero {
-  padding-top: 100px;
   margin-bottom: var(--mb-5);
 }
 
@@ -149,8 +163,8 @@ img {
   line-height: 0.98;
   font-family: 'Outfit', sans-serif;
   font-weight: var(--font-normal);
-  padding: 0 100px;
   margin-bottom: var(--mb-5);
+  margin-top: var(--mb-4);
 }
 
 .banner-item-big {
@@ -353,6 +367,7 @@ img {
   .menu-container {
     grid-template-columns: 1fr 2fr;
   }
+
   .champs-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -369,10 +384,6 @@ img {
   .navbar-brand {
     letter-spacing: 1rem;
     font-size: calc(1.2*var(--xl-font-size));
-  }
-
-  .hero {
-    padding-top: 80px;
   }
 
   .champ-filter-container > button {
@@ -475,10 +486,6 @@ img {
     font-size: calc(var(--xl-font-size));
   }
 
-  .hero {
-    padding-top: 55px;
-  }
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -494,11 +501,6 @@ img {
   .banner-item-big > span {
     font-size: 3rem;
   }
-
-  .hero {
-    padding-top: 50px;
-  }
-
 }
 
 
