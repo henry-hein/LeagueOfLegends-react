@@ -15,7 +15,7 @@ const Champ = (props) => {
 
   return (
     <div className="champ-card">
-        <Link to={`champ/${id}/`}>
+        <Link to={`champion/${id}/`}>
           <div className="img-container" style={{"--aspect-ratio":1/1.3}}>
             <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"}></img>
           </div>
@@ -49,15 +49,12 @@ class Champion extends React.Component {
       searchTerm: '',
       champRole: 'all',
       isActive: false,
-      dropdownRef: React.createRef(),
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.getRole = this.getRole.bind(this);
     this.onClick = this.onClick.bind(this);
   }
-
-  // dropdownRef = useRef(null);
 
   onClick () {
    this.setState(prevState => ({
@@ -78,7 +75,7 @@ class Champion extends React.Component {
     .then(checkStatus)
     .then(json)
     .then((data) => {
-        // console.log(Object.values(data.data));
+        console.log(Object.values(data.data));
         this.setState({ results: Object.values(data.data), error: ''});
     })
     .catch((error) => {
@@ -103,7 +100,7 @@ class Champion extends React.Component {
             </div>
             <div className="champ-filter-container">
               <button onClick={this.onClick}><span>CHOOSE CHAMP TYPE</span></button>
-              <ul ref={this.dropdownRef} className={`champ-filter champ-filter-menu ${isActive ? 'active' : 'inactive'}`}>
+              <ul className={`champ-filter champ-filter-menu ${isActive ? 'active' : 'inactive'}`}>
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ALL" />
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ASSASSIN" />
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="FIGHTER" />

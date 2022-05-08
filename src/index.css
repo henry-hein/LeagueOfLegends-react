@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;800&display=swap');
 
-/* Variables */
+/* ============================= Variables ============================= */
 :root {
   --font-normal: 300;
   --font-medium: 400;
@@ -33,7 +33,7 @@
   --mb-5: 2.5rem;
 }
 
-/* INITIAL SETUP */
+/* ============================= INITIAL SETUP ============================= */
 
 @media screen and (min-width: 768px) {
   :root{
@@ -115,7 +115,7 @@ img {
   margin-right: var(--mb-2);
 }
 
-/* HEADER */
+/* ============================= HEADER ============================= */
 
 .nav-container {
   display: flex;
@@ -149,6 +149,8 @@ img {
   transform: translateY(-0.25em);
   color: orange;
 }
+
+/* ============================= HOMEPAGE ============================= */
 
 /* BANNER */
 
@@ -353,6 +355,11 @@ img {
   column-gap: var(--mb-1);
   margin-top: var(--mb-2);
 }
+
+/* ============================= CHAMP PAGE ============================= */
+
+
+/* ============================= MOBILE RESPONSIVE ============================= */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
