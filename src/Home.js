@@ -75,7 +75,7 @@ class Champion extends React.Component {
     .then(checkStatus)
     .then(json)
     .then((data) => {
-        console.log(Object.values(data.data));
+        // console.log(Object.values(data.data));
         this.setState({ results: Object.values(data.data), error: ''});
     })
     .catch((error) => {
