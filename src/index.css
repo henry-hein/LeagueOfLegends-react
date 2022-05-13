@@ -358,6 +358,101 @@ img {
 
 /* ============================= CHAMP PAGE ============================= */
 
+.champ-page-container {
+  max-width: 1440px;
+  color: white;
+  background-color: var(--card-bg-color);
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/* CHAMP BANNER */
+
+.champ-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.champ-banner-info {
+  background-image: linear-gradient(to bottom, rgba(0,0,0, 0.05), rgba(0,0,0,1));
+  height: 100%;
+  width: 100%;
+}
+
+.champ-banner img {
+  width: 100%;
+}
+
+.champ-banner-info h1 {
+  font-weight: var(--font-very-bold);
+  font-size: 6em;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  margin: -30px 0;
+}
+
+.champ-banner-info h2 {
+  font-style: italic;
+  font-size: 1.5em;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.champ-lore p {
+  text-align: center;
+  font-size: var(--m-font-size);
+  padding: var(--mb-4) 5rem;
+}
+
+/* CHAMP ABILITIES */
+
+.champ-ability li {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  align-items: center;
+  grid-column-gap: var(--mb-1);
+  margin-bottom: var(--mb-5);
+}
+
+.champ-ability li p {
+  text-transform: uppercase;
+  font-size: var(--l-font-size);
+  font-weight: var(--font-bold);
+  color: white;
+}
+
+.champ-ability li div {
+  font-size: var(--m-font-size);
+}
+
+.champ-ability img {
+  width: 10vw;
+}
+
+.champ-abilities h1, .champ-skins h1 {
+  font-size: 3em;
+  letter-spacing: 0.3rem;
+  color: white;
+  font-style: italic;
+  font-family: 'Cinzel', serif;
+  margin-bottom: var(--mb-3);
+}
+
+/* SKINS */
+
+.champ-skins {
+  
+}
+
+.champ-skins li img {
+  width: 100%;
+
+}
+
 
 /* ============================= MOBILE RESPONSIVE ============================= */
 
@@ -469,6 +564,14 @@ img {
   .champ-filter-menu li:hover {
     background-color: rgba(194, 189, 189, 0.877);
     z-index: -1;
+  }
+
+  .champ-ability li {
+    grid-template-columns: 2fr 7fr;
+  }
+
+  .champ-ability li img {
+    width: 25vw;
   }
 
 }

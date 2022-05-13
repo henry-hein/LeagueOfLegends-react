@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {json, checkStatus } from './utils';
 
 const ChampFacts = (props) => {
@@ -6,7 +6,6 @@ const ChampFacts = (props) => {
     name,
     id,
     title,
-    tags,
     stats,
     lore,
     passive,
@@ -14,39 +13,57 @@ const ChampFacts = (props) => {
     spells,
   } = props.champion;
 
-  return (
-    <div className="champ-card">
-      <div className="champ-info">
-        <h3 className="champ-name">{name}</h3>
-        <h4 className="champ-title">{title}</h4>
-        <ul className="champ-stats">
-          <li className="champ-stat">{stats.armor}</li>
-          <li className="champ-stat">{stats.attackdamage}</li>
-          <li className="champ-stat">{stats.hp}</li>
-          <li className="champ-stat">{stats.movespeed}</li>
-          <li className="champ-stat"></li>
-        </ul>
-        <ul className="champ-roles">
-          <li>Role:</li>
-          <li className="champ-role">{tags[0]}</li>
-        </ul>
-      <ul>
-        <li>
-          <img src={`http://ddragon.leagueoflegends.com/cdn/12.8.1/img/passive/${passive.image.full}`}></img>
 
-        </li>
-      {(() => {
+  return (
+    <>
+      <div className="champ-banner" style={{backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', paddingTop: 'calc((1/3)*100%)'}}>
+        {/* <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + ${id} + _0.jpg`} /> */}
+        <div className="champ-banner-info">
+          <h2>{title}</h2>
+          <h1>{name}</h1>
+        </div>
+      </div>
+      <div className="champ-lore"><p>{lore}</p></div>
+      <div className="champ-abilities container">
+        <h1>ABILITIES</h1>
+        <ul className="champ-ability" >
+            <li>
+                <img src={`https://ddragon.leagueoflegends.com/cdn/12.8.1/img/passive/${passive.image.full}`}></img>
+                <div>
+                  <p>{passive.name}</p>
+                  <div>{passive.description}</div>
+                </div>
+            </li>
+        {(() => {
           return spells.map((spell) => {
             return (
-                <li key={spell.id}>
+                <li key={spell.id}  >
                   <img src={`https://ddragon.leagueoflegends.com/cdn/12.8.1/img/spell/${spell.image.full}`}></img>
+                  <div>
+                    <p>{spell.name}</p>
+                    <div>{spell.description}</div>
+                  </div>
                 </li> 
             );
           })
         })()}
-      </ul>
+        </ul>
       </div>
-    </div>
+      <div className="champ-skins container">
+        <h1>SKINS</h1>
+        <ul>
+        {(() => {
+          return skins.map((skin) => {
+            return (
+                <li key={skin.num}>
+                  <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>
+                </li> 
+            );
+          })
+        })()}
+        </ul>
+      </div>
+    </>
   )
 }
 
@@ -76,8 +93,7 @@ class Champion extends React.Component {
     const { champ } = this.state;
 
     return (
-      <div className="container">
-        <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + this.props.match.params.id + "_2.jpg"}></img>
+      <div className="champ-page-container">
         {(() => {
           return champ.map((champion) => {
             return <ChampFacts key={champion.id} champion={champion} />;
