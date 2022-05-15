@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {json, checkStatus } from './utils';
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const ChampFacts = (props) => {
   const {
@@ -13,6 +14,16 @@ const ChampFacts = (props) => {
     spells,
   } = props.champion;
 
+  const [current, setCurrent] = useState(0);
+  const length = skins.length;
+
+  const nextImg = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  }
+
+  const prevImg = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  }
 
   return (
     <>
@@ -51,17 +62,22 @@ const ChampFacts = (props) => {
       </div>
       <div className="champ-skins container">
         <h1>SKINS</h1>
-        <ul>
-        {(() => {
-          return skins.map((skin) => {
-            return (
-                <li key={skin.num}>
-                  <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>
-                </li> 
-            );
-          })
-        })()}
-        </ul>
+        <div className="carousel">
+          <button className="carousel-button prev" onClick={prevImg}><FaArrowCircleLeft /></button>
+          <button className="carousel-button next" onClick={nextImg}><FaArrowCircleRight /></button>
+          <ul>
+          {(() => {
+            return skins.map((skin, index) => {
+              return (
+                  <li className={index === current ? 'slide active' : 'slide'} key={skin.num}>
+                    {index === current && (<img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>)}
+                    {index === current && (<div className={index === current ? 'skin-name active' : 'skin-name'}>{skin.name}</div>)}
+                  </li>
+              );
+            })
+          })()}
+          </ul>
+        </div>
       </div>
     </>
   )
