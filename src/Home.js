@@ -99,7 +99,7 @@ class Champion extends React.Component {
               <input type="search" onChange={this.handleChange} className="search" placeholder="&#128269;      SEARCH"/>
             </div>
             <div className="champ-filter-container">
-              <button onClick={this.onClick}><span>CHOOSE CHAMP TYPE</span></button>
+              <button onClick={this.onClick}>{champRole === 'all' ? <span>ALL</span> : <span>{champRole}</span>}</button>
               <ul className={`champ-filter champ-filter-menu ${isActive ? 'active' : 'inactive'}`} onClick={this.onClick}>
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ALL" />
                 <ChampFilterMenuItem getChampRole={this.getRole} champType="ASSASSIN" />

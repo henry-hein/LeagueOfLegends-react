@@ -564,6 +564,10 @@ img {
     display: block;
   }
 
+  .champ-filter-container > button span {
+    text-transform: uppercase;
+  }
+
   .champ-filter {
     display: block;
   }
