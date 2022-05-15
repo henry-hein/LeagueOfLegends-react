@@ -25,10 +25,6 @@ const App = () => {
           <Route path="/champion/:id" component={Champion} />
         </Switch>
       </Router>
-
-      <footer className="container">
-        
-      </footer>
     </>
   );
 }
