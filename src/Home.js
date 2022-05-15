@@ -17,7 +17,7 @@ const Champ = (props) => {
     <div className="champ-card">
         <Link to={`champion/${id}/`}>
           <div className="img-container" style={{"--aspect-ratio":1/1.3}}>
-            <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"}></img>
+            <img src={"https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"}></img>
           </div>
           <div className="champ-info">
             <h3 className="champ-name">{name}</h3>
@@ -71,7 +71,7 @@ class Champion extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json")
+    fetch("https://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json")
     .then(checkStatus)
     .then(json)
     .then((data) => {
