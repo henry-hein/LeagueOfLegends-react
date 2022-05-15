@@ -640,6 +640,13 @@ img {
     width: 25vw;
   }
 
+
+  .champ-banner-info h1 {
+    font-weight: var(--font-very-bold);
+    font-size: 3.5em;
+    margin: 5px 0;
+  }
+
 }
 
 /* Medium devices (landscape tablets, 768px and smaller) */
@@ -681,9 +688,37 @@ img {
     font-size: 3rem;
   }
 
-  .skin-name.active {
-    font-size: 2em;
+  .champ-banner-info h1 {
+    font-weight: var(--font-very-bold);
+    font-size: 2.5em;
+    margin: 5px 0;
   }
+
+  .champ-lore p {
+    font-size: var(--sm-font-size);
+    padding: var(--mb-2);
+  }
+
+  .champ-ability li {
+    grid-template-columns: 2fr 5fr;
+  }
+
+  .champ-ability li p {
+    font-size: var(--sm-font-size);
+  }
+
+  .champ-ability li div {
+    font-size: var(--sm-font-size);
+  }
+
+  .carousel-button {
+    font-size: 3rem;
+  }
+
+  .skin-name.active {
+    font-size: 1.5em;
+  }
+
 }
 
 
