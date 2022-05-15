@@ -70,7 +70,7 @@ const ChampFacts = (props) => {
             return skins.map((skin, index) => {
               return (
                   <li className={index === current ? 'slide active' : 'slide'} key={skin.num}>
-                    {index === current && (<img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>)}
+                    {index === current && (<img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`}></img>)}
                     {index === current && (<div className={index === current ? 'skin-name active' : 'skin-name'}>{skin.name}</div>)}
                   </li>
               );
