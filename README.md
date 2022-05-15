@@ -21,23 +21,32 @@ League of Legends Champions List is an opportunity to learn about designing beau
 ## Technology
 
 
-![React](https://imgs.search.brave.com/VHvqxLuY44EOnZJTkzu7xM4rZAQNTq9V97jTKbVo9z8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5s/dlI1bm5pN3hkUEN4/VS10QzZ0enpnSGFI/YSZwaWQ9QXBp) ![Bootstrap](https://imgs.search.brave.com/WLKBni-H8_5cTiyzal_L1bEjyLv9KIk64BWcbkXkD98/rs:fit:549:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5O/aHd2bGw0bTFKYzN3/amptaTJPR0ZnSGFH/WiZwaWQ9QXBp) ![Heroku](https://imgs.search.brave.com/sbCpzJ4DpQ8HmyDYPd2IVZxO2bhGCgs5frlAvsStbUg/rs:fit:293:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5P/a0kzaDN5NjNKSVQ1/UUJ4R043WkVnSGFJ/SCZwaWQ9QXBp) ![Github](https://imgs.search.brave.com/x9Fb7I00OXkXE7z1-9Jh_Odj8KLNI7VHpT0iKGFauaA/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Z/eU9Nbjl3ajh0WkNF/eUNQVFlHbGVnSGFI/YSZwaWQ9QXBp)
+![React](https://imgs.search.brave.com/VHvqxLuY44EOnZJTkzu7xM4rZAQNTq9V97jTKbVo9z8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5s/dlI1bm5pN3hkUEN4/VS10QzZ0enpnSGFI/YSZwaWQ9QXBp) ![CSS](https://imgs.search.brave.com/tYCpst0AI9pM2BLWnXQpwUCiZrpXMID-8KYO3YbGWA4/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5m/S3RFQTZWU3VDUGgw/bkN5MlZUblpRSGFF/OCZwaWQ9QXBp) ![Netlify](https://imgs.search.brave.com/aBFlemvrKIZCVcGW62-rgXkpY6JXeH9Nmgb0ndTTWhc/rs:fit:888:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5X/TUFfTllGZnZaSXB4/X3V2UXhRUUVBSGFE/OSZwaWQ9QXBp) ![Github](https://imgs.search.brave.com/x9Fb7I00OXkXE7z1-9Jh_Odj8KLNI7VHpT0iKGFauaA/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Z/eU9Nbjl3ajh0WkNF/eUNQVFlHbGVnSGFI/YSZwaWQ9QXBp)
+
 
 * **React.js**: Client-side front-end UI framework
-* **Bootstrap**: Mobile-first front-end CSS framework
-* **Heroku**: Cloud Platform as a Service for continuous deployment
+* **CSS**: Style sheet language for presentation of front-end UI development
+* **Netlify**: Cloud based hosting this website
 * **Github**: Version control software for continous integration and deployment
 
 ## Features
 
-### Currency Conversion and Swap
+### Mobile Responsive
 
-![6ao1wy](6ao1wy.gif)
+![mobile](mobile.gif)
 
-### Historical Conversion Chart
+### Search By Alphabet
 
-![6ao11i](6ao11i.gif)
+![search](search.gif)
 
-### Exchange Rate Table
+### Filter By Role
 
-![6ao9ok](6ao9ok.gif)
+![filter](filter.gif)
+
+### Search and Filter by Alphabet & Role
+
+![search&filter](searchandfilter.gif)
+
+### Carousel
+
+![carousel](carousel.gif)
