@@ -53,7 +53,8 @@
 html {
   scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -63,6 +64,9 @@ body {
   line-height: 1.6;
   color: black;
   margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 h1, h2, h3, h4, h5, h6, p {
