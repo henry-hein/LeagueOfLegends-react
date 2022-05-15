@@ -13,10 +13,10 @@ const App = () => {
           <div className="nav-container">
             <Link className="navbar-brand" to="/">LEAGUE OF LEGENDS</Link>
             <div className="socials">
-              <p><FaTwitter /> <a target="_blank" href="https://twitter.com"></a></p>
-              <p><FaLinkedin /> <a target="_blank" href="https://linkedin.com/in/henry-hein"></a></p>
-              <p><FaGithub /> <a target="_blank" href="https://www.github.com/henry-hein"></a></p>
-              <p><FaGlobe /> <a target="_blank" href="https://henryhein.netlify.app"></a></p>
+              <p><a target="_blank" href="https://twitter.com"><FaTwitter /></a></p>
+              <p><a target="_blank" href="https://linkedin.com/in/henry-hein"><FaLinkedin /></a></p>
+              <p><a target="_blank" href="https://www.github.com/henry-hein"><FaGithub /></a></p>
+              <p><a target="_blank" href="https://henryhein.netlify.app"><FaGlobe /></a></p>
             </div>
           </div>
         </nav>
