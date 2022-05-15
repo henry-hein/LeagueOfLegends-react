@@ -52,6 +52,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -672,6 +674,11 @@ img {
   .carousel-button {
     font-size: 3rem;
   }
+
+  .champ-abilities h1, .champ-skins h1 {
+    font-size: 2em;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -690,7 +697,7 @@ img {
 
   .champ-banner-info h1 {
     font-weight: var(--font-very-bold);
-    font-size: 2.5em;
+    font-size: 2em;
     margin: 5px 0;
   }
 
