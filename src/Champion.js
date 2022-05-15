@@ -27,7 +27,7 @@ const ChampFacts = (props) => {
 
   return (
     <>
-      <div className="champ-banner" style={{backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', paddingTop: 'calc((1/3)*100%)'}}>
+      <div className="champ-banner" style={{backgroundImage: `url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', paddingTop: 'calc((1/3)*100%)'}}>
         {/* <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + ${id} + _0.jpg`} /> */}
         <div className="champ-banner-info">
           <h2>{title}</h2>
@@ -70,7 +70,7 @@ const ChampFacts = (props) => {
             return skins.map((skin, index) => {
               return (
                   <li className={index === current ? 'slide active' : 'slide'} key={skin.num}>
-                    {index === current && (<img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>)}
+                    {index === current && (<img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_${skin.num}.jpg`}></img>)}
                     {index === current && (<div className={index === current ? 'skin-name active' : 'skin-name'}>{skin.name}</div>)}
                   </li>
               );
@@ -92,7 +92,7 @@ class Champion extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://ddragon.leagueoflegends.com/cdn/12.8.1/data/en_US/champion/${this.props.match.params.id}.json`)
+    fetch(`https://ddragon.leagueoflegends.com/cdn/12.8.1/data/en_US/champion/${this.props.match.params.id}.json`)
     .then(checkStatus)
     .then(json)
     .then((data) => {
