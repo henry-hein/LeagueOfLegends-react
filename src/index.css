@@ -141,7 +141,6 @@ img {
 
 .socials {
   display: flex;
-  color: white;
 }
 
 .socials p {
@@ -149,7 +148,11 @@ img {
   margin-right: 3rem;
 }
 
-.socials p:hover {
+.socials a {
+ color: white;
+}
+
+.socials a:hover {
   cursor: pointer;
   box-shadow: 0 0.5em 0.5em -0.4em;
   transform: translateY(-0.25em);
