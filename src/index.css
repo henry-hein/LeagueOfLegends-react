@@ -143,16 +143,13 @@ img {
   display: flex;
 }
 
-.socials p {
+.socials a {
   font-size: var(--l-font-size);
   margin-right: 3rem;
+  color: white;
 }
 
-.socials a {
- color: white;
-}
-
-.socials a:hover {
+.socials p:hover {
   cursor: pointer;
   box-shadow: 0 0.5em 0.5em -0.4em;
   transform: translateY(-0.25em);
